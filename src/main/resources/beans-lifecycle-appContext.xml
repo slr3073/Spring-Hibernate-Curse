@@ -6,7 +6,7 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="myFortune" class="com.slr3073.fortune.RdmFortuneService"/>
-    <bean id="myCoach" class="com.slr3073.coach.CoachFoot" init-method="onStartBeans" destroy-method="onDestroyBeans">
+    <bean id="myCoach" class="com.slr3073.coach.CoachBasket" init-method="onStartBean" destroy-method="onDestroyBean" scope="prototype">
         <constructor-arg ref="myFortune"/>
     </bean>
 

@@ -19,4 +19,12 @@ public class CoachBasket implements Coach{
     public String getFortune() {
         return fortuneService.getFortune();
     }
+
+    public void onStartBean(){
+        System.out.println("onStart d'un prototype");
+    }
+
+    public void onDestroyBean(){
+        System.out.println("onDestroy d'un prototype");
+    }
 }
