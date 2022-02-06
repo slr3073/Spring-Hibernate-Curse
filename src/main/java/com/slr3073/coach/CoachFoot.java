@@ -20,4 +20,12 @@ public class CoachFoot implements Coach {
     public String getFortune() {
         return fortuneService.getFortune();
     }
+
+    public void onStartBeans(){
+        System.out.println("Inside start lifecycle");
+    }
+
+    public void onDestroyBeans(){
+        System.out.println("Inside destroy lifecycle");
+    }
 }
