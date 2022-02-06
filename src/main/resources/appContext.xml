@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="sport.properties"/>
+
     <bean id="myFortune" class="com.slr3073.fortune.HappyFortuneService"/>
     <bean id="myCoach" class="com.slr3073.coach.CoachFoot">
         <constructor-arg ref="myFortune"/>
     </bean>
 
-
     <bean id="myCoachBoxe" class="com.slr3073.coach.CoachBoxe">
         <!--Setter injection-->
         <property name="fortuneService" ref="myFortune"/>
-        <property name="age" value="18"/>
-        <property name="mail" value="romain.salvan@g-mail.fr"/>
+        <property name="age" value="${age}"/>
+        <property name="mail" value="${mail}"/>
     </bean>
 </beans>
