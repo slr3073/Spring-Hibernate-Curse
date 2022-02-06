@@ -6,5 +6,5 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="myCoach" class="com.slr3073.coach.CoachBasket"/>
+    <bean id="myCoach" class="com.slr3073.coach.CoachTir"/>
 </beans>
