@@ -7,4 +7,9 @@
     <bean id="myCoach" class="com.slr3073.coach.CoachFoot">
         <constructor-arg ref="myFortune"/>
     </bean>
+
+    <bean id="myCoachBoxe" class="com.slr3073.coach.CoachBoxe">
+        <!--Setter injection-->
+        <property name="fortuneService" ref="myFortune"/>
+    </bean>
 </beans>
