@@ -5,6 +5,23 @@ import com.slr3073.fortune.FortuneService;
 public class CoachBoxe implements Coach {
     private FortuneService fortuneService;
 
+    private String mail;
+    private int age;
+
+    // Pour l'injection de valeurs littérales
+    public String getMail() {
+        return mail;
+    }
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     // Pour l'injection par setter
     public void setFortuneService(FortuneService fortuneService) {
         this.fortuneService = fortuneService;

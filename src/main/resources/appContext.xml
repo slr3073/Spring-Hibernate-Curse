@@ -8,8 +8,11 @@
         <constructor-arg ref="myFortune"/>
     </bean>
 
+
     <bean id="myCoachBoxe" class="com.slr3073.coach.CoachBoxe">
         <!--Setter injection-->
         <property name="fortuneService" ref="myFortune"/>
+        <property name="age" value="18"/>
+        <property name="mail" value="romain.salvan@g-mail.fr"/>
     </bean>
 </beans>
