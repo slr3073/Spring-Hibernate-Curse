@@ -2,6 +2,7 @@ package com.slr3073.coachs;
 
 import com.slr3073.fortunes.Fortune;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,6 +17,7 @@ public class CoachPetanque implements Coach {
 
     //Injection de dépendances par une méthode quelconque, c'est un setter sans le nom
     @Autowired
+    @Qualifier("rdmFortune")
     public void jeNeSuisPasUnSetter(Fortune f){
         fortune = f;
     }

@@ -2,12 +2,15 @@ package com.slr3073.coachs;
 
 import com.slr3073.fortunes.Fortune;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+
 public class CoachTennis implements Coach {
     //Injection de dépendances par champs (fields)
     @Autowired
+    @Qualifier("happyFortune") // On spécifie explicitement quel bean on choisit, car il y a plusieurs implémentations de fortune
     private Fortune fortune;
 
     @Override
