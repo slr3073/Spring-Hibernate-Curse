@@ -2,6 +2,7 @@ package com.slr3073.apps;
 
 import com.slr3073.SLRConfig;
 import com.slr3073.coachs.Coach;
+import com.slr3073.coachs.CoachPiscine;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class ConfigApp {
@@ -9,10 +10,13 @@ public class ConfigApp {
         //Configuration sans XML seulement avec les annotations
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SLRConfig.class);
 
-        Coach coach = context.getBean("coachPiscine", Coach.class);
+        CoachPiscine coachPiscine = context.getBean("coachPiscine", CoachPiscine.class);
 
-        System.out.println(coach.getDailyWorkout());
-        System.out.println(coach.getFortune());
+        System.out.println(coachPiscine.getDailyWorkout());
+        System.out.println(coachPiscine.getFortune());
+        //Injection de valeurs depuis un fichier de propriété
+        System.out.println("age : " + coachPiscine.getAge());
+        System.out.println("mail : " + coachPiscine.getMail());
         context.close();
     }
 }
