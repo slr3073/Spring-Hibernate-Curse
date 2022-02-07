@@ -1,10 +1,10 @@
-package com.slr3073.project2;
+package com.slr3073.apps;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Project2ApplicationTests {
+class AnnotationAppTests {
 
     @Test
     void contextLoads() {
