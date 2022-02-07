@@ -10,6 +10,8 @@ public class AnnotationApp {
         //On récupère bien l'entraîneur avec l'annotation @Component
         Coach coach = context.getBean("coachPetanque", Coach.class);
         System.out.println(coach.getDailyWorkout());
+        //On note bien que la fortune est bien donné donc l'injection c'est bien passé
+        System.out.println(coach.getFortune());
         context.close();
     }
 
