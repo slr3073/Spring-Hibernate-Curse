@@ -6,19 +6,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CoachTennis implements Coach {
-    private Fortune fortune;
-
-//    On injecte la dépendance automatiquement par contructeur
-//    @Autowired
-//    public CoachTennis(Fortune fortune) {
-//        this.fortune = fortune;
-//    }
-
-    //On injecte la dépendance automatiquement par setter
+    //Injection de dépendances par champs (fields)
     @Autowired
-    public void setFortune(Fortune fortune) {
-        this.fortune = fortune;
-    }
+    private Fortune fortune;
 
     @Override
     public String getDailyWorkout() {
