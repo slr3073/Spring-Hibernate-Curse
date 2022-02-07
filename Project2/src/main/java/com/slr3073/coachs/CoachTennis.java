@@ -3,10 +3,11 @@ package com.slr3073.coachs;
 import com.slr3073.fortunes.Fortune;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-
+@Scope("prototype") // On peut rajouter une scope
 public class CoachTennis implements Coach {
     //Injection de dépendances par champs (fields)
     @Autowired
