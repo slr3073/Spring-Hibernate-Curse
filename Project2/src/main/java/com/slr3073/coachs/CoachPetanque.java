@@ -9,18 +9,18 @@ import org.springframework.stereotype.Component;
 public class CoachPetanque implements Coach {
     private Fortune fortune;
 
-    // Injection de la dépendance dans le constructeur
-    /*@Autowired
-    public CoachPetanque(Fortune fortune) {
+    // Injection de la dépendance dans le constructeur avec un qualifier
+    @Autowired
+    public CoachPetanque(@Qualifier("rdmFortune") Fortune fortune) {
         this.fortune = fortune;
-    }*/
+    }
 
     //Injection de dépendances par une méthode quelconque, c'est un setter sans le nom
-    @Autowired
+    /*@Autowired
     @Qualifier("rdmFortune")
     public void jeNeSuisPasUnSetter(Fortune f){
         fortune = f;
-    }
+    }*/
 
     @Override
     public String getDailyWorkout() {
