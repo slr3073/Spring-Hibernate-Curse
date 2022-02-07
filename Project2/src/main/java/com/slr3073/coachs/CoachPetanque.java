@@ -9,9 +9,15 @@ public class CoachPetanque implements Coach {
     private Fortune fortune;
 
     // Injection de la dépendance dans le constructeur
-    @Autowired
+    /*@Autowired
     public CoachPetanque(Fortune fortune) {
         this.fortune = fortune;
+    }*/
+
+    //Injection de dépendances par une méthode quelconque, c'est un setter sans le nom
+    @Autowired
+    public void jeNeSuisPasUnSetter(Fortune f){
+        fortune = f;
     }
 
     @Override
