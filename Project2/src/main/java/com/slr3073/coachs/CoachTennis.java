@@ -8,9 +8,15 @@ import org.springframework.stereotype.Component;
 public class CoachTennis implements Coach {
     private Fortune fortune;
 
-    //On injecte la dépendance automatiquement par contructeur
+//    On injecte la dépendance automatiquement par contructeur
+//    @Autowired
+//    public CoachTennis(Fortune fortune) {
+//        this.fortune = fortune;
+//    }
+
+    //On injecte la dépendance automatiquement par setter
     @Autowired
-    public CoachTennis(Fortune fortune) {
+    public void setFortune(Fortune fortune) {
         this.fortune = fortune;
     }
 
