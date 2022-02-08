@@ -10,6 +10,12 @@
 <p th:text="'Nom : ' + ${person.lastName}"></p>
 <p th:text="'Prénom : ' + ${person.firstName}"></p>
 <p th:text="'Pays : ' + ${person.country}"></p>
+<p th:text="'Language de programmation : ' + ${person.favoriteLanguage}"></p>
+
+OS Utilisés :
+<ul>
+    <li th:each="os: ${person.os}" th:text="${os}"></li>
+</ul>
 
 </body>
 </html>

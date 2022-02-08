@@ -1,5 +1,6 @@
 package com.slr3073;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class Person {
@@ -7,6 +8,8 @@ public class Person {
     private String lastName;
     private String country;
     private final LinkedHashMap<String,String> COUNTRY_OPTIONS = new LinkedHashMap<>();
+    private String favoriteLanguage;
+    private ArrayList<String> os = new ArrayList<>();
 
     public Person(){
         COUNTRY_OPTIONS.put("FR","France");
@@ -14,7 +17,6 @@ public class Person {
         COUNTRY_OPTIONS.put("ITA","Italie");
         COUNTRY_OPTIONS.put("ES","Espagne");
         COUNTRY_OPTIONS.put("RO","Roumanie");
-
     }
 
     public LinkedHashMap<String, String> getCOUNTRY_OPTIONS() {
@@ -43,5 +45,21 @@ public class Person {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getFavoriteLanguage() {
+        return favoriteLanguage;
+    }
+
+    public void setFavoriteLanguage(String favoriteLanguage) {
+        this.favoriteLanguage = favoriteLanguage;
+    }
+
+    public ArrayList<String> getOs() {
+        return os;
+    }
+
+    public void setOs(ArrayList<String> os) {
+        this.os = os;
     }
 }

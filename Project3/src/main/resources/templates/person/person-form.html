@@ -13,12 +13,39 @@
     <br/>
     Last Name:
     <input type="text" th:field="*{lastName}" />
-    <br/>
+    <br/><br/>
     Country:
     <select th:field="*{country}">
         <option th:each="key : *{COUNTRY_OPTIONS.keySet()}" th:value="*{COUNTRY_OPTIONS.get(#vars.key)}" th:text="${key}" ></option>
     </select>
-    <br/> <br/>
+    <br/><br/>
+    Favorite Language:
+    <div>
+        <input type="radio" id="lang1" value="Java" name="langGroup" th:field="*{favoriteLanguage}" checked >
+        <label for="lang1">Java</label>
+
+        <input type="radio" id="lang2" value="C#" name="langGroup" th:field="*{favoriteLanguage}">
+        <label for="lang2">C#</label>
+
+        <input type="radio" id="lang3" value="Kotlin" name="langGroup" th:field="*{favoriteLanguage}">
+        <label for="lang3">Kotlin</label>
+
+        <input type="radio" id="lang4" value="Python" name="langGroup" th:field="*{favoriteLanguage}">
+        <label for="lang4">Python</label>
+    </div>
+    Favorite Language:
+    <div>
+        <input type="checkbox" id="os1" value="OSX" name="langGroup" th:field="*{os}">
+        <label for="os1">OSX</label>
+
+        <input type="checkbox" id="os2" value="Linux" name="langGroup" th:field="*{os}">
+        <label for="os2">Linux</label>
+
+        <input type="checkbox" id="os3" value="W10" name="langGroup" th:field="*{os}">
+        <label for="os3">W10</label>
+
+    </div>
+    <br/>
     <input type="submit" value="Create" />
 </form>
 </body>
