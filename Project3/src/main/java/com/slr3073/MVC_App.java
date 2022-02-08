@@ -1,4 +1,4 @@
-package com.slr3073.apps;
+package com.slr3073;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
