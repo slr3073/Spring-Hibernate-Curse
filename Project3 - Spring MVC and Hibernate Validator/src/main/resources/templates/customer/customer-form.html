@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Création de client</title>
+</head>
+<body>
+
+<i>Les champs avec une asterisk (*) sont obligatoires, merci de les remplir</i><br><br>
+<form th:action="@{/customer/displayCustomer}" th:object="${customer}" method="post">
+    <!--First name-->
+    <div>
+        <label for="firstName">First Name</label>
+        <input type="text" th:field="*{firstName}" id="firstName">
+    </div>
+    <!--Last name-->
+    <div>
+        <label for="lastName">Last Name (*)</label>
+        <input type="text" th:field="*{lastName}" id="lastName">
+        <ul>
+            <li th:if="${#fields.hasErrors()}" style="color: red"> Champ Requis !</li>
+        </ul>
+    </div>
+    <br>
+    <input type="submit" value="Valider">
+</form>
+
+</body>
+</html>

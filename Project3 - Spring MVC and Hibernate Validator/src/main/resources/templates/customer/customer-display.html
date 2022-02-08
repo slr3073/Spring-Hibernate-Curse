@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Voici un client</title>
+</head>
+<body>
+<h2>Ceci est un bon client !</h2>
+<p th:if="${!customer.firstName.isEmpty()}" th:text="'Prénom : ' + ${customer.firstName}"></p>
+<p th:text="'Nom : ' + ${customer.lastName}"></p>
+
+</body>
+</html>
