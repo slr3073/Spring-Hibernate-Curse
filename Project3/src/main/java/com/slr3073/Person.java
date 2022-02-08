@@ -1,9 +1,25 @@
 package com.slr3073;
 
+import java.util.LinkedHashMap;
+
 public class Person {
     private String firstName;
     private String lastName;
     private String country;
+    private final LinkedHashMap<String,String> COUNTRY_OPTIONS = new LinkedHashMap<>();
+
+    public Person(){
+        COUNTRY_OPTIONS.put("FR","France");
+        COUNTRY_OPTIONS.put("US","Etats unis");
+        COUNTRY_OPTIONS.put("ITA","Italie");
+        COUNTRY_OPTIONS.put("ES","Espagne");
+        COUNTRY_OPTIONS.put("RO","Roumanie");
+
+    }
+
+    public LinkedHashMap<String, String> getCOUNTRY_OPTIONS() {
+        return COUNTRY_OPTIONS;
+    }
 
     public String getFirstName() {
         return firstName;

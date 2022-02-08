@@ -14,14 +14,11 @@
     Last Name:
     <input type="text" th:field="*{lastName}" />
     <br/>
-    Contry:
+    Country:
     <select th:field="*{country}">
-        <option value="France" label="France"/>
-        <option value="Allemagne" label="Allemagne"/>
-        <option value="Espagne" label="Espagne"/>
-        <option value="Italie" label="Italie"/>
+        <option th:each="key : *{COUNTRY_OPTIONS.keySet()}" th:value="*{COUNTRY_OPTIONS.get(#vars.key)}" th:text="${key}" ></option>
     </select>
-    <br/>
+    <br/> <br/>
     <input type="submit" value="Create" />
 </form>
 </body>
