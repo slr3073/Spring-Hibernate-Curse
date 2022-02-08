@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Voici un être humain</title>
+</head>
+<body>
+
+<h2>Voici un être humain</h2>
+<p th:text="'Nom : ' + ${person.lastName}"></p>
+<p th:text="'Prénom : ' + ${person.firstName}"></p>
+<p th:text="'Pays : ' + ${person.country}"></p>
+
+</body>
+</html>
