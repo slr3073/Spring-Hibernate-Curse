@@ -29,9 +29,14 @@ public class Application {
         for(Student student : students) studentDAO.create(student);
 
         System.out.println(studentDAO.read(2));
+        displayObjects(studentDAO.readAll());
+        displayObjects(studentDAO.readAll("SALVAN"));
 
-        students = (ArrayList<Student>) studentDAO.readAll();
-        for(Student student : students) System.out.println(student);
+
+    }
+
+    public static void displayObjects(List objects){
+        for (Object o: objects) System.out.println(o);
     }
 
 
