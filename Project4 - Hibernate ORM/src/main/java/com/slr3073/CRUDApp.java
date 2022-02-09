@@ -34,6 +34,9 @@ public class CRUDApp {
         studentDAO.updateFirstName(1,"Rom");
         System.out.println(studentDAO.read(1));
 
+        studentDAO.updateAllEmails("mon.mail@sfr.fr");
+        displayObjects(studentDAO.readAll());
+
     }
 
     public static void displayObjects(List objects){

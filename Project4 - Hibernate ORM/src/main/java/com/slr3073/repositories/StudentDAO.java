@@ -63,4 +63,11 @@ public class StudentDAO {
         student.setFirstName(firstName);
         session.getTransaction().commit();
     }
+
+    public void updateAllEmails(String email){
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        session.createQuery("update Student set email = '"+ email +"'").executeUpdate();
+        session.getTransaction().commit();
+    }
 }
