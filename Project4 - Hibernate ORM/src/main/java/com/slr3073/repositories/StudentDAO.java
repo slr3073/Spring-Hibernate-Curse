@@ -70,4 +70,12 @@ public class StudentDAO {
         session.createQuery("update Student set email = '"+ email +"'").executeUpdate();
         session.getTransaction().commit();
     }
+
+    public void delete(long id){
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        Student student = session.get(Student.class, id);
+        session.delete(student);
+        session.getTransaction().commit();
+    }
 }

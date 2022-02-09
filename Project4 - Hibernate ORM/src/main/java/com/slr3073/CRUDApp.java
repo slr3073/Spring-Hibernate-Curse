@@ -37,6 +37,10 @@ public class CRUDApp {
         studentDAO.updateAllEmails("mon.mail@sfr.fr");
         displayObjects(studentDAO.readAll());
 
+        //Delete
+        studentDAO.delete(1);
+        displayObjects(studentDAO.readAll());
+
     }
 
     public static void displayObjects(List objects){
