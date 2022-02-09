@@ -37,6 +37,14 @@
             <li style="color: red" th:errors="*{satisfaction}"></li>
         </ul>
     </div>
+    <!--Course code-->
+    <div>
+        <label for="courseCode">Course Code</label>
+        <input type="text" th:field="*{courseCode}" id="courseCode">
+        <ul th:if="${#fields.hasErrors('courseCode')}">
+            <li style="color: red" th:errors="*{courseCode}"></li>
+        </ul>
+    </div>
     <br>
     <input type="submit" value="Valider">
 </form>

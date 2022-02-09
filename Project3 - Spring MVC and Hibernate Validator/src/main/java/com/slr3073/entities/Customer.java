@@ -1,4 +1,6 @@
-package com.slr3073;
+package com.slr3073.entities;
+
+import com.slr3073.validators.StartWith;
 
 import javax.validation.constraints.*;
 
@@ -16,6 +18,11 @@ public class Customer {
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Doit contenir 5 chiffres")
     public String cp;
+
+    @NotNull(message = "Champ Requit !")
+    @Size(min = 1, message = "Champ Requit !")
+    @StartWith(value = "SR", message = "Doit commencer par SR")
+    public String courseCode;
 
     public String getFirstName() {
         return firstName;
@@ -47,5 +54,13 @@ public class Customer {
 
     public void setCp(String cp) {
         this.cp = cp;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 }

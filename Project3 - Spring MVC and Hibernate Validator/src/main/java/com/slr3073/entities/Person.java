@@ -1,4 +1,4 @@
-package com.slr3073;
+package com.slr3073.entities;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

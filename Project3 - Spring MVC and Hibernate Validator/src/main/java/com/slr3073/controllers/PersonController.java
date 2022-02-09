@@ -1,6 +1,6 @@
 package com.slr3073.controllers;
 
-import com.slr3073.Person;
+import com.slr3073.entities.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;

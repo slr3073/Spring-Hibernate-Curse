@@ -1,6 +1,6 @@
 package com.slr3073.controllers;
 
-import com.slr3073.Customer;
+import com.slr3073.entities.Customer;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
