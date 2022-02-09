@@ -46,4 +46,14 @@ public class StudentDAO {
         session.getTransaction().commit();
         return result;
     }
+
+    public List<Student> readAll(String lastName, String firstName) {
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        String request = String.format("from Student s where s.lastName = '%s' or s.firstName = '%s'",lastName,firstName);
+        List<Student> result = session.createQuery(request).getResultList();
+        session.getTransaction().commit();
+        return result;
+
+    }
 }

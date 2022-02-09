@@ -31,6 +31,7 @@ public class Application {
         System.out.println(studentDAO.read(2));
         displayObjects(studentDAO.readAll());
         displayObjects(studentDAO.readAll("SALVAN"));
+        displayObjects(studentDAO.readAll("SALVAN","Mehdi"));
 
 
     }
