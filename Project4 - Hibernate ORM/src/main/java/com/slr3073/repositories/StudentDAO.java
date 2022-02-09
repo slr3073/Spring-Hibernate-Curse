@@ -5,6 +5,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudentDAO {
     private SessionFactory factory;
     public StudentDAO() {
@@ -23,6 +26,14 @@ public class StudentDAO {
         Session session = factory.getCurrentSession();
         session.beginTransaction();
         Student result = session.get(Student.class, id);
+        session.getTransaction().commit();
+        return result;
+    }
+
+    public List<Student> readAll(){
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        List<Student> result = session.createQuery("from Student").getResultList();
         session.getTransaction().commit();
         return result;
     }

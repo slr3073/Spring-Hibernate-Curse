@@ -29,6 +29,9 @@ public class Application {
         for(Student student : students) studentDAO.create(student);
 
         System.out.println(studentDAO.read(2));
+
+        students = (ArrayList<Student>) studentDAO.readAll();
+        for(Student student : students) System.out.println(student);
     }
 
 
