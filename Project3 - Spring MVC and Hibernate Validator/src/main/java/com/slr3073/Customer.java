@@ -1,9 +1,6 @@
 package com.slr3073;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class Customer {
     public String firstName;
@@ -15,6 +12,9 @@ public class Customer {
     @Min(value = 0, message = "Doit être supérieur à 0")
     @Max(value = 100, message = "Doit être inférieur à 100")
     public int satisfaction;
+
+    @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Doit contenir 5 chiffres")
+    public String cp;
 
     public String getFirstName() {
         return firstName;
@@ -38,5 +38,13 @@ public class Customer {
 
     public void setSatisfaction(int satisfaction) {
         this.satisfaction = satisfaction;
+    }
+
+    public String getCp() {
+        return cp;
+    }
+
+    public void setCp(String cp) {
+        this.cp = cp;
     }
 }

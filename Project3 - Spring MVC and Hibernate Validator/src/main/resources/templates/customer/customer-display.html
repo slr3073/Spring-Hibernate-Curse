@@ -8,6 +8,8 @@
 <h2>Ceci est un bon client !</h2>
 <p th:if="${!customer.firstName.isEmpty()}" th:text="'Prénom : ' + ${customer.firstName}"/>
 <p th:text="'Nom : ' + ${customer.lastName}"/>
+<p th:text="'Code Postal : ' + ${customer.cp}"/>
 <p th:text="'Satisfaction de ' + ${customer.satisfaction} + '%'"/>
+
 </body>
 </html>
