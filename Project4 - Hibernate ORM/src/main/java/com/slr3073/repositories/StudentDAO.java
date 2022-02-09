@@ -54,6 +54,13 @@ public class StudentDAO {
         List<Student> result = session.createQuery(request).getResultList();
         session.getTransaction().commit();
         return result;
+    }
 
+    public void updateFirstName(long id, String firstName){
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        Student student = session.get(Student.class, id);
+        student.setFirstName(firstName);
+        session.getTransaction().commit();
     }
 }
