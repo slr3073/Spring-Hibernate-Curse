@@ -17,8 +17,16 @@
     <div>
         <label for="lastName">Last Name (*)</label>
         <input type="text" th:field="*{lastName}" id="lastName">
+        <ul th:if="${#fields.hasErrors('lastName')}">
+            <li style="color: red"> Champ Requis !</li>
+        </ul>
+    </div>
+    <!--Satisfaction-->
+    <div>
+        <label for="satisfaction">Satisfaction Rate</label>
+        <input type="number" th:field="*{satisfaction}" id="satisfaction">
         <ul>
-            <li th:if="${#fields.hasErrors()}" style="color: red"> Champ Requis !</li>
+            <li th:if="${#fields.hasErrors('satisfaction')}" style="color: red" th:errors="*{satisfaction}"></li>
         </ul>
     </div>
     <br>
