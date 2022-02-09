@@ -21,7 +21,7 @@
             <li style="color: red"> Champ Requis !</li>
         </ul>
     </div>
-
+    <!--CP-->
     <div>
         <label for="cp">CP (*)</label>
         <input type="text" th:field="*{cp}" id="cp">
@@ -33,8 +33,8 @@
     <div>
         <label for="satisfaction">Satisfaction Rate</label>
         <input type="number" th:field="*{satisfaction}" id="satisfaction">
-        <ul>
-            <li th:if="${#fields.hasErrors('satisfaction')}" style="color: red" th:errors="*{satisfaction}"></li>
+        <ul th:if="${#fields.hasErrors('satisfaction')}">
+            <li style="color: red" th:errors="*{satisfaction}"></li>
         </ul>
     </div>
     <br>

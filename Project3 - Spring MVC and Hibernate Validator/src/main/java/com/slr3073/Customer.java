@@ -9,9 +9,10 @@ public class Customer {
     @Size(min = 1)
     public String lastName;
 
+    @NotNull(message = "Champ Requit !")
     @Min(value = 0, message = "Doit être supérieur à 0")
     @Max(value = 100, message = "Doit être inférieur à 100")
-    public int satisfaction;
+    public Integer satisfaction;
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Doit contenir 5 chiffres")
     public String cp;
@@ -32,11 +33,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public int getSatisfaction() {
+    public Integer getSatisfaction() {
         return satisfaction;
     }
 
-    public void setSatisfaction(int satisfaction) {
+    public void setSatisfaction(Integer satisfaction) {
         this.satisfaction = satisfaction;
     }
 
