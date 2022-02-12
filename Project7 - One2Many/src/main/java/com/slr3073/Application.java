@@ -38,7 +38,20 @@ public class Application {
         Instructor inst = session.get(Instructor.class, instructor1.getId());
         log.info("Courses : {}", inst.getCourses());
         session.getTransaction().commit();
-        session.close();
+
+        //Suppression
+        session = getCurrentSessionFromConfig();
+        session.beginTransaction();
+        Course courJava = session.get(Course.class, 1L);
+        session.delete(courJava);
+        session.getTransaction().commit();
+
+        //Vérification
+        session = getCurrentSessionFromConfig();
+        session.beginTransaction();
+        inst = session.get(Instructor.class, instructor1.getId());
+        log.info("Courses : {}", inst.getCourses());
+        session.getTransaction().commit();
     }
 
     public static Session getCurrentSessionFromConfig() {
