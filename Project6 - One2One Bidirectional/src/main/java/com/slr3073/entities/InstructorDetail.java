@@ -20,10 +20,11 @@ public class InstructorDetail {
     @Column(length = 100, name = "youtube_channel")
     private String youtubeChannel;
 
-    @Column(length = 50,  name = "hobby")
+    @Column(length = 50, name = "hobby")
     private String hobby;
 
-    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "instructorDetail",
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Instructor instructor;
 
     public InstructorDetail() {

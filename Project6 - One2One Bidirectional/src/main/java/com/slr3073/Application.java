@@ -32,12 +32,24 @@ public class Application {
         System.out.println(instructor1.getEmail());
         session.getTransaction().commit();
 
+        System.out.println(instructor);
+
         //Suppression en cascade depuis le détail
-        session = getCurrentSessionFromConfig();
+        /* session = getCurrentSessionFromConfig();
         session.beginTransaction();
         detail = session.get(InstructorDetail.class, instructorDetail.getId());
         session.delete(detail);
+        session.getTransaction().commit();*/
+
+        //Suppression du détail sans cascade remove
+        session = getCurrentSessionFromConfig();
+        session.beginTransaction();
+        detail = session.get(InstructorDetail.class, instructorDetail.getId());
+        //nullifier le détail depuis l'instructeur pour ne pas référencer un détail non existant
+        detail.getInstructor().setInstructorDetail(null);
+        session.delete(detail);
         session.getTransaction().commit();
+
     }
 
     public static Session getCurrentSessionFromConfig() {
