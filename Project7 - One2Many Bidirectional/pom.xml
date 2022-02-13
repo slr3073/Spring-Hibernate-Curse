@@ -11,8 +11,8 @@
     <groupId>com.slr3073</groupId>
     <artifactId>Project7</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Project7 - One2Many</name>
-    <description>Project7 - One2Many</description>
+    <name>Project7 - One2Many Bidirectional</name>
+    <description>Project7 - One2Many Bidirectional</description>
     <properties>
         <java.version>17</java.version>
     </properties>
