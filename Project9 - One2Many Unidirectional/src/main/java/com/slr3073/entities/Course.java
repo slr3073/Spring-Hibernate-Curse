@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "courses")
@@ -21,9 +23,13 @@ public class Course {
     @Column(name = "name")
     private String name;
 
-    @JoinColumn(name = "instructor")
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "instructor")
     private Instructor instructor;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
+    private List<Review> reviews = new ArrayList<>();
 
     public Course(String name, Instructor instructor) {
         this.name = name;

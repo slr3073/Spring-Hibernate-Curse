@@ -36,7 +36,6 @@ public class Instructor {
 
     //Default fetch type is lazy
     @OneToMany(mappedBy = "instructor",
-            fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Course> courses = new ArrayList<>();
 
