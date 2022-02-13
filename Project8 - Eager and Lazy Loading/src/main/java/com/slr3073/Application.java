@@ -16,6 +16,30 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+
+        Instructor instructor = new Instructor("Romain", "SALVAN", "romain.salvan@g-mail.fr", null);
+        Course course1 = new Course("Java tutorial", instructor);
+        Course course2 = new Course("CSS tutorial", instructor);
+
+        // Insertion des cours et de l'instructeur
+        Session session = getCurrentSessionFromConfig();
+        session.beginTransaction();
+        session.save(instructor);
+        session.save(course1);
+        session.save(course2);
+        session.getTransaction().commit();
+
+        //Test lazy fetching (voir logs sql)
+        session = getCurrentSessionFromConfig();
+        session.beginTransaction();
+        Instructor instructor1 = session.get(Instructor.class, 1L);
+        System.out.println("-------");
+        //la requête est faite seulement lorsque l'on demande les cours
+        log.info("Courses : {}", instructor1.getCourses());
+        session.getTransaction().commit();
+
+        // ERROR : On ne peut pas lazy fetch si l'on n'est pas dans une session
+        //log.info("Courses : {}", instructor1.getCourses());
     }
 
     public static Session getCurrentSessionFromConfig() {

@@ -34,6 +34,7 @@ public class Instructor {
     @JoinColumn(name = "instructor_detail")
     private InstructorDetail instructorDetail;
 
+    //Default fetch type is lazy
     @OneToMany(mappedBy = "instructor",
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Course> courses = new ArrayList<>();
