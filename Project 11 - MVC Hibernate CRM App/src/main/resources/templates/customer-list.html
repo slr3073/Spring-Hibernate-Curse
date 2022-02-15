@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Customers</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
+
 <body>
-    <h1>Coming soon ...</h1>
+
+<div class="card" style="margin-left: 2em; margin-right: 2em; margin-top: 1em">
+    <div class="card-body text-center">
+        <h2 class="card-title">Customer CRM</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>PRENOM</th>
+                <th>NOM</th>
+                <th>EMAIL</th>
+                <th>OPERATION</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="customer: ${customers}">
+                <th th:text="${customer.id}"></th>
+                <td th:text="${customer.firstName}"></td>
+                <td th:text="${customer.lastName}"></td>
+                <td th:text="${customer.email}"></td>
+                <td>
+                    <button type="button" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
 </body>
 </html>
