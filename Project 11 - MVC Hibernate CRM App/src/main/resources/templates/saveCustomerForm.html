@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Création d'un client</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+
+<body>
+
+<div class="card text-center" style="margin: 2% auto auto;; width: 30%;">
+    <h2 class="card-header text-center">Ajouter un Client</h2>
+    <div class="card-body text-left">
+        <form th:action="@{/saveCustomer}" th:object="${customer}" method="post">
+            <div class="form-group">
+                <label for="firstName">Prénom</label>
+                <input type="text" class="form-control" th:field="*{firstName}" id="firstName">
+            </div>
+            <div class="form-group">
+                <label for="name">Nom</label>
+                <input type="text" class="form-control" th:field="*{lastName}" id="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" th:field="*{email}" id="email">
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
