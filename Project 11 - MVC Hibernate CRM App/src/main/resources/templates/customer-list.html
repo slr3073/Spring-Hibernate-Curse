@@ -28,8 +28,10 @@
                 <td th:text="${customer.lastName}"></td>
                 <td th:text="${customer.email}"></td>
                 <td>
-                    <button type="button" class="btn btn-primary">Modifier</button>
-                    <button type="button" class="btn btn-danger">Supprimer</button>
+                    <a type="button" class="btn btn-primary" th:href="'/updateCustomerForm/' + ${customer.id}">
+                        Modifier
+                    </a>
+                    <a type="button" class="text-white btn btn-danger">Supprimer</a>
                 </td>
             </tr>
             </tbody>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MAJ Client</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<div class="card text-center" style="margin: 2% auto auto;; width: 30%;">
+    <h2 class="card-header text-center">Mise à jour d'un client</h2>
+    <div class="card-body text-left">
+        <form th:action="@{/updateCustomer}" th:object="${customer}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label for="firstName">Prénom</label>
+                <input type="text" class="form-control" th:field="*{firstName}" th:value="${customer.firstName}" id="firstName">
+            </div>
+            <div class="form-group">
+                <label for="name">Nom</label>
+                <input type="text" class="form-control" th:field="*{lastName}" th:value="${customer.lastName}" id="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" th:field="*{email}" th:value="${customer.email}" id="email">
+            </div>
+            <button style="display: block; margin: auto;" type="submit" class="btn btn-success">Modifier Client</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -7,22 +7,24 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
 @Transactional
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerDAO customerDAO;
 
     public void save(Customer customer) {
-        System.out.println("save service");
         customerDAO.save(customer);
     }
 
-    public List<Customer> findAll(){
+    public List<Customer> findAll() {
         return customerDAO.findAll();
     }
 
-
+    public Optional<Customer> find(long id) {
+        return customerDAO.findById(id);
+    }
 }

@@ -9,12 +9,12 @@
 <body>
 
 <div class="card text-center" style="margin: 2% auto auto;; width: 30%;">
-    <h2 class="card-header text-center">Ajouter un Client</h2>
+    <h2 class="card-header text-center">MAJ d'un client</h2>
     <div class="card-body text-left">
         <form th:action="@{/saveCustomer}" th:object="${customer}" method="post">
             <div class="form-group">
                 <label for="firstName">Prénom</label>
-                <input type="text" class="form-control" th:field="*{firstName}" id="firstName">
+                <input type="text" class="form-control" th:field="*{firstName}"  id="firstName">
             </div>
             <div class="form-group">
                 <label for="name">Nom</label>
@@ -24,7 +24,7 @@
                 <label for="email">Email</label>
                 <input type="email" class="form-control" th:field="*{email}" id="email">
             </div>
-            <button type="submit" class="btn btn-primary">Ajouter</button>
+            <button type="submit" class="btn btn-primary">Sauvegarder</button>
         </form>
     </div>
 </div>
