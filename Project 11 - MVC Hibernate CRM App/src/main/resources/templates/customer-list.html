@@ -7,7 +7,6 @@
 </head>
 
 <body>
-
 <div class="card text-center" style="margin-left: 2em; margin-right: 2em; margin-top: 1em">
     <h2 class="card-header">Gestionnaire de Relation Client</h2>
     <div class="card-body">
@@ -31,7 +30,11 @@
                     <a type="button" class="btn btn-primary" th:href="'/updateCustomerForm/' + ${customer.id}">
                         Modifier
                     </a>
-                    <a type="button" class="text-white btn btn-danger">Supprimer</a>
+                    <form th:action="'/deleteCustomer/' + ${customer.id}" method="post">
+                        <button type="submit" class="text-white btn btn-danger" onclick="(!(confirm('Voulez-vous vraiment supprimer ce client ?')))">
+                            Supprimer
+                        </button>
+                    </form>
                 </td>
             </tr>
             </tbody>
@@ -39,6 +42,5 @@
         <a href="/saveCustomerForm" class="btn btn-success">Ajouter Client</a>
     </div>
 </div>
-
 </body>
 </html>

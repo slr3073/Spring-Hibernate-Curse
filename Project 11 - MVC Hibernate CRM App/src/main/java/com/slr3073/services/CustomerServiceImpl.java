@@ -16,15 +16,23 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerDAO customerDAO;
 
+    @Override
     public void save(Customer customer) {
         customerDAO.save(customer);
     }
 
+    @Override
     public List<Customer> findAll() {
         return customerDAO.findAll();
     }
 
+    @Override
     public Optional<Customer> find(long id) {
         return customerDAO.findById(id);
+    }
+
+    @Override
+    public void deleteById(long id) {
+        customerDAO.deleteById(id);
     }
 }

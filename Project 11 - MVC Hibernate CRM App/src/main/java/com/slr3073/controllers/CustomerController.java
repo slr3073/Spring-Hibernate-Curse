@@ -20,6 +20,7 @@ public class CustomerController {
     public String displayCustomerList(Model model) {
         List<Customer> customers = customerService.findAll();
         model.addAttribute("customers", customers);
+        model.addAttribute("customerToDelete", new Customer());
         return "customer-list";
     }
 
@@ -47,6 +48,12 @@ public class CustomerController {
     @PostMapping("/updateCustomer")
     public String updateCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.save(customer);
+        return "redirect:/customers";
+    }
+
+    @PostMapping("/deleteCustomer/{id}")
+    public String deleteCustomer(@PathVariable(value = "id") String id){
+        customerService.deleteById(Long.parseLong(id));
         return "redirect:/customers";
     }
 
