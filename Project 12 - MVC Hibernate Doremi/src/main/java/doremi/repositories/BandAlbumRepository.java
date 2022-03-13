@@ -13,6 +13,7 @@ import javax.persistence.PersistenceContext;
 
 @Getter
 @Setter
+@Transactional
 @Repository
 public class BandAlbumRepository {
     @PersistenceContext

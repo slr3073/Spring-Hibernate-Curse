@@ -15,12 +15,12 @@ public class BandAlbumService {
     @Autowired
     private BandAlbumRepository bandAlbumRepository;
 
-    public void save(Album album) {
-        bandAlbumRepository.save(album);
+    public Album save(Album album) {
+        return bandAlbumRepository.save(album);
     }
 
-    public void save(Band band) {
-        bandAlbumRepository.save(band);
+    public Band save(Band band) {
+        return bandAlbumRepository.save(band);
     }
 
     public Album findAlbumById(Long id) {
