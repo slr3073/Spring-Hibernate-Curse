@@ -8,6 +8,8 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Service
@@ -29,5 +31,9 @@ public class BandAlbumService {
 
     public Band findBandById(Long id) {
         return bandAlbumRepository.findBandById(id);
+    }
+
+    public List<Band> findAllBand(){
+        return bandAlbumRepository.findAllBand();
     }
 }

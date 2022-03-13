@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.ConstraintViolationException;
 
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -171,5 +173,45 @@ public class BandAlbumRepositoryIntegrationTest {
         albumSaved = bandAlbumRepository.save(albumSaved);
         // then: le nombre d'albums du groupe n'a pas changé
         assertEquals(countBandAlbum + 1, albumSaved.getBand().getAlbums().size());
+    }
+
+    @Test
+    public void testFindAllBand() {
+
+        // given: three persisted Band
+        bandAlbumRepository.save(new Band("Radiohead", true));
+        bandAlbumRepository.save(new Band("Orelsan", true));
+        bandAlbumRepository.save(band);
+
+        // when: searching for all Band
+        List<Band> bands = bandAlbumRepository.findAllBand();
+
+        // then: all Band are fetched
+        assertThat(bands.size(), is(8)); // 3 + 5 from DataLoader
+
+        // then: Band are sorted by name
+        assertThat(bands.get(0).getName(), is("Bob Marley and the Wailers"));
+        assertThat(bands.get(1).getName(), is("Joy Division"));
+        assertThat(bands.get(2).getName(), is("Lana Del Rey"));
+        assertThat(bands.get(3).getName(), is("Orelsan"));
+    }
+
+    @Test
+    public void testFindAllBandFromDataLoader() {
+        // given: the initialization of DataLoader
+
+        // when: searching for all Band
+        List<Band> bands = bandAlbumRepository.findAllBand();
+
+        // then: 4 Band are fetched
+        assertThat(bands.size(), is(5));
+
+        // then: Band are sorted by title
+        assertThat(bands.get(0).getName(), is("Joy Division"));
+        assertThat(bands.get(1).getName(), is("Lana Del Rey"));
+        assertThat(bands.get(2).getName(), is("Pixies"));
+        assertThat(bands.get(3).getName(), is("Public Enemy"));
+        assertThat(bands.get(4).getName(), is("The Strokes"));
+
     }
 }

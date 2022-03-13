@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 
 @Getter
@@ -37,5 +39,10 @@ public class BandAlbumRepository {
 
     public Band findBandById(Long id) {
         return entityManager.find(Band.class, id);
+    }
+
+    public List<Band> findAllBand() {
+        TypedQuery<Band> query = entityManager.createQuery("select b from Band b order by b.name", Band.class);
+        return query.getResultList();
     }
 }
