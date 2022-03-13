@@ -18,7 +18,6 @@ public class BandAlbumRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Transactional
     public Album save(Album album) {
         Band savedBand = save(album.getBand());
         album.setBand(savedBand);
