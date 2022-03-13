@@ -19,4 +19,8 @@ public class ArticleService {
     public List<Article> findAllArticles() {
         return articleRepository.findAllArticles();
     }
+
+    public Article findArticleById(int id){
+        return articleRepository.findArticleById(id);
+    }
 }

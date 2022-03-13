@@ -32,4 +32,12 @@ public class ArticleServiceTest {
         verify(articleService.getArticleRepository()).findAllArticles();
     }
 
+    @Test
+    public void testFindByIdArticleIsDelegatedToRepository() {
+        // when: findArticleById() est appelé sur un articleService
+        articleService.findArticleById(0);
+        // then: findArticleById() du dépôt associé au service est invoqué
+        verify(articleService.getArticleRepository()).findArticleById(0);
+    }
+
 }

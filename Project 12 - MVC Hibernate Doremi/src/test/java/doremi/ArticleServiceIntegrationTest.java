@@ -40,4 +40,18 @@ public class ArticleServiceIntegrationTest {
         Assertions.assertEquals("Concert", (articleService.findAllArticles().get(0).getCategory()));
     }
 
+    @Test
+    public void testFindByIdOk() {
+        // when: une requête pour obtenir l'article avec l'id 0 est émise
+        // then: la réponse est un article dont l'id est 0
+        Assertions.assertEquals(0, (articleService.findArticleById(0)).getArticleId());
+    }
+
+    @Test
+    public void testFindByIdInconnuIsNull() {
+        // when: une requête pour obtenir un article avec un id inexistant en base est émise
+        // then: la réponse est null
+        Assertions.assertNull(articleService.findArticleById(9999));
+    }
+
 }
