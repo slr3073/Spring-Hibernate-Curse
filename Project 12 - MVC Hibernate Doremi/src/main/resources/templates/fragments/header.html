@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+</head>
+<body>
+
+<div class="container">
+    <div th:fragment="header">
+        <div class="w3-display-container w3-red" style="height:200px;">
+            <div class="w3-padding w3-display-left">
+                <h1><i>Do-Ré-Mi</i></h1>
+            </div>
+
+            <div class="w3-padding w3-display-right">
+                <div class="w3-bar-block w3-light-grey">
+                    <a class="w3-bar-item w3-button" href="index.html" th:href="@{/}">Index</a>
+                    <a class="w3-bar-item w3-button" href="articles.html" th:href="@{/articles}">Articles</a>
+                    <a class="w3-bar-item w3-button" href="bands.html" th:href="@{/bands}">Bands</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
