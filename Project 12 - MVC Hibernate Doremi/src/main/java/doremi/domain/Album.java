@@ -2,10 +2,7 @@ package doremi.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 
 @Data
@@ -26,6 +23,9 @@ public class Album {
     @Min(1950)
     @Max(2022)
     private int year;
+
+    @ManyToOne
+    private Band band;
 
     public Album(String title, Genre genre, int year) {
         this.title = title;

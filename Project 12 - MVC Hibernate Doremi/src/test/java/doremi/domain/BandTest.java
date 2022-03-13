@@ -45,4 +45,43 @@ public class BandTest {
         Assertions.assertFalse(validator.validate(b).isEmpty());
     }
 
+    @Test
+    public void testUnNouveauBandNAPasDAlbum() {
+        // given: un Band avec un nom et un booléen
+        Band b = new Band("The Strokes", true);
+        // then: ce Band n'a pas d'album
+        Assertions.assertEquals(0, b.getAlbums().size(), "Un nouveau groupe Band doit avoir une liste d'album vide");
+    }
+
+    @Test
+    public void testAddAlbumLieBienLesEntites() {
+        // given: un Band b
+        Band b = new Band("The Strokes", true);
+        Album a = new Album("Is This It", Genre.INDIE, 2001);
+        // when: l'Album a est associé au groupe Band b
+        b.addAlbum(a);
+        // then: le Band b a un album associé
+        Assertions.assertEquals(1, b.getAlbums().size());
+        Assertions.assertTrue(b.getAlbums().contains(a));
+        Assertions.assertEquals(b, a.getBand());
+    }
+
+    @Test
+    public void testRemoveAlbumSupprimeBienLeLienEntreLesEntites() {
+        // given: un Band b
+        Band b = new Band("The Strokes", true);
+        // given: un Album a associé au Band b
+        Album a = new Album("Is This It", Genre.INDIE, 2001);
+        // when: l'Album a est associé au groupe Band b
+        b.addAlbum(a);
+        // when: l'Album a est supprimé des albums du Band b
+        b.removeAlbum(a);
+        // then: le Band b n'a plus d'album associé
+        Assertions.assertEquals(0, b.getAlbums().size());
+        // then: le Band b n'est plus associé à l'album a
+        Assertions.assertFalse(b.getAlbums().contains(a));
+        Assertions.assertNull(a.getBand());
+    }
+
+
 }
