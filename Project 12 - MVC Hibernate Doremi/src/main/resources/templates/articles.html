@@ -1,0 +1,28 @@
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+</head>
+
+<body>
+
+<h2>Liste des Articles</h2>
+<table class="w3-table w3-bordered">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Titre</th>
+        <th>Catégorie</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="article:${articles}">
+        <td th:text="${article.getArticleId()}">
+        <td th:text="${article.getTitle()}">
+        <td th:text="${article.getCategory()}">
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
