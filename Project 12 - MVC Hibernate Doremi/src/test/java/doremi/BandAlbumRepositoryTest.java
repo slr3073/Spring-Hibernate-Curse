@@ -11,6 +11,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.persistence.EntityManager;
 
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(SpringExtension.class)
@@ -21,38 +23,58 @@ public class BandAlbumRepositoryTest {
     @MockBean
     private EntityManager entityManager;
 
-    @MockBean
+    @MockBean(name = "band")
     private Band band;
 
-    @MockBean
+    @MockBean(name = "managedBand")
+    private Band managedBand;
+
+    @MockBean(name = "album")
     private Album album;
 
-    private Long anId = 1L;
+    @MockBean(name = "managedAlbum")
+    private Album managedAlbum;
+
+    private final Long anId = 1L;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    public void setUp() {
         bandAlbumRepository = new BandAlbumRepository();
         bandAlbumRepository.setEntityManager(entityManager);
+        given(this.entityManager.merge(album)).willReturn(managedAlbum);
+        given(this.entityManager.merge(band)).willReturn(managedBand);
+        given(this.album.getBand()).willReturn(band);
+        given(this.managedAlbum.getBand()).willReturn(band);
     }
 
     @Test
-    public void testTheEntityManagerPersistsAlbumWhenAnAlbumIsSaved() {
+    public void testTheEntityManagerMergesAlbumWhenAnAlbumIsSaved() {
 
         // when: trying to save a Album
         bandAlbumRepository.save(album);
 
-        // then: the persist method is invoked on the entity manager
-        verify(bandAlbumRepository.getEntityManager()).persist(album);
+        // then: the merge method is invoked on the entity manager
+        verify(bandAlbumRepository.getEntityManager()).merge(album);
     }
 
     @Test
-    public void testTheEntityManagerPersistsABandWhenABandIsSaved() {
+    public void testSaveAlbumReturnsAnAlbum() {
+        assertInstanceOf(Album.class, bandAlbumRepository.save(album));
+    }
+
+    @Test
+    public void testTheEntityManagerMergesABandWhenABandIsSaved() {
 
         // when: trying to save a Band
         bandAlbumRepository.save(band);
 
         // then: the persist method is invoked on the entity manager
-        verify(bandAlbumRepository.getEntityManager()).persist(band);
+        verify(bandAlbumRepository.getEntityManager()).merge(band);
+    }
+
+    @Test
+    public void testSaveBandReturnsABand() {
+        assertInstanceOf(Band.class, bandAlbumRepository.save(band));
     }
 
     @Test
@@ -62,7 +84,7 @@ public class BandAlbumRepositoryTest {
         bandAlbumRepository.findAlbumById(anId);
 
         // then: the find method is invoked on the entity manager
-        verify(entityManager).find(Album.class, anId);
+        verify(bandAlbumRepository.getEntityManager()).find(Album.class, anId);
     }
 
     @Test
@@ -72,6 +94,6 @@ public class BandAlbumRepositoryTest {
         bandAlbumRepository.findBandById(anId);
 
         // then: the find method is invoked on the entity manager
-        verify(entityManager).find(Band.class, anId);
+        verify(bandAlbumRepository.getEntityManager()).find(Band.class, anId);
     }
 }

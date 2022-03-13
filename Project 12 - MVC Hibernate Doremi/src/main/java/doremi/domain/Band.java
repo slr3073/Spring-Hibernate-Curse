@@ -35,6 +35,8 @@ public class Band {
     }
 
     public void addAlbum(Album a) {
+        if (albums.contains(a)) return;
+
         albums.add(a);
         a.setBand(this);
     }
