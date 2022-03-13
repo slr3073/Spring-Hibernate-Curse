@@ -1,4 +1,4 @@
-package doremi.controllers;
+package controllers;
 
 import doremi.controllers.IndexController;
 import org.junit.jupiter.api.BeforeEach;
