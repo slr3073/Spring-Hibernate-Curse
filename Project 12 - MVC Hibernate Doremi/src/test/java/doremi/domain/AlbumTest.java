@@ -1,7 +1,5 @@
-package domain;
+package doremi.domain;
 
-import doremi.domain.Album;
-import doremi.domain.Genre;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

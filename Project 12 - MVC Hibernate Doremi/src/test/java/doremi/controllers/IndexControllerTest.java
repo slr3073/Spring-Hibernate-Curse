@@ -1,6 +1,5 @@
-package controllers;
+package doremi.controllers;
 
-import doremi.controllers.IndexController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
