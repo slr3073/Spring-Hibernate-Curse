@@ -1,5 +1,6 @@
 package doremi;
 
+import doremi.domain.Article;
 import doremi.repositories.ArticleRepositoryInt;
 import doremi.services.ArticleService;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +15,9 @@ import static org.mockito.Mockito.verify;
 public class ArticleServiceTest {
 
     private ArticleService articleService;
+
+    @MockBean
+    private Article article;
 
     @MockBean
     private ArticleRepositoryInt articleRepository;
@@ -39,5 +43,14 @@ public class ArticleServiceTest {
         // then: findArticleById() du dépôt associé au service est invoqué
         verify(articleService.getArticleRepository()).findArticleById(0);
     }
+
+    @Test
+    public void testSaveArticleIsDelegatedToRepository() {
+        // when: saveArticle() est appelé sur un articleService
+        articleService.saveArticle(article);
+        // then: saveArticle() du dépôt associé au service est invoqué
+        verify(articleService.getArticleRepository()).saveArticle(article);
+    }
+
 
 }

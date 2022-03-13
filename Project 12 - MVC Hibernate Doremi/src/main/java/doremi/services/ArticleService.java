@@ -5,6 +5,7 @@ import doremi.repositories.ArticleRepositoryInt;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,5 +23,9 @@ public class ArticleService {
 
     public Article findArticleById(int id){
         return articleRepository.findArticleById(id);
+    }
+
+    public Article saveArticle(Article article) throws InvalidDataAccessApiUsageException {
+        return this.articleRepository.saveArticle(article);
     }
 }
